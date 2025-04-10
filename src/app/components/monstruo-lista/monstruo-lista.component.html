@@ -1,0 +1,13 @@
+<h2>Lista de Monstruos</h2>
+
+<ul>
+  <li *ngFor="let monstruo of monstruos">
+    {{ monstruo.nombre }} - {{ monstruo.descripcion }}
+    {{monstruo.imagen}}
+    <button (click)="deleteMonstruo(monstruo.idMonstruo)">Eliminar</button>
+
+  </li>
+</ul>
+
+<a routerLink="/monstruos/nuevo">Agregar Monstruo</a>
+
