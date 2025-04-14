@@ -19,11 +19,14 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+
       "architect": {
+
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/monster-hunter-frontend",
+
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -67,6 +70,9 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+      "proxyConfig": "src/proxy.conf.json"
+    },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {

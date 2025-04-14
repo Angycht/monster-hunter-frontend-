@@ -11,28 +11,40 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./monstruo-lista.component.css']
 })
 export class MonstruoListaComponent implements OnInit {
-
   monstruos: Monstruo[] = [];
+  monstruoSeleccionado: Monstruo | null = null;
 
-  constructor(private monstruoService: MonstruoService) { }
+  constructor(private MonstruoService: MonstruoService) {}
 
   ngOnInit(): void {
-    this.getMonstruos();
+    this.cargarMonstruos();
   }
 
-  getMonstruos(): void {
-    this.monstruoService.findAll().subscribe(
-      monstruos => this.monstruos = monstruos,
-      error => console.error('Error al obtener los monstruos', error)
-    );
+  cargarMonstruos(): void {
+    this.MonstruoService.findAll().subscribe({
+      next: (data) => this.monstruos = data,
+      error: (err) => console.error('Error al cargar los monstruos:', err)
+    });
   }
 
-  deleteMonstruo(id: number): void {
-    this.monstruoService.borrarId(id).subscribe(
-      () => {
-        this.monstruos = this.monstruos.filter(monstruo => monstruo.idMonstruo !== id);
+  mostrarDetalles(idMonstruo: number) {
+    // Verifica que el ID sea válido
+    if(!idMonstruo) {
+      console.error('ID no válido:', idMonstruo);
+      return;
+    }
+
+    this.MonstruoService.findById(idMonstruo).subscribe({
+      next: (data) => {
+        // Manejo de datos exitoso
       },
-      error => console.error('Error al eliminar el monstruo', error)
-    );
+      error: (err) => {
+        console.error('Error en el servidor:', err.message);
+      }
+    });
+  }
+
+  cerrarDetalles(): void {
+    this.monstruoSeleccionado = null;
   }
 }

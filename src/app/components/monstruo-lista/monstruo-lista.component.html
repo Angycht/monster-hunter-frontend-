@@ -1,13 +1,17 @@
-<h2>Lista de Monstruos</h2>
-
-<ul>
-  <li *ngFor="let monstruo of monstruos">
-    {{ monstruo.nombre }} - {{ monstruo.descripcion }}
-    {{monstruo.imagen}}
-    <button (click)="deleteMonstruo(monstruo.idMonstruo)">Eliminar</button>
-
+<ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+  <li *ngFor="let monstruo of monstruos" class="card">
+    <h3 class="card-title">{{ monstruo.nombre }}</h3>
+    <img src="{{ monstruo.imagen }}" alt="{{ monstruo.nombre }}" class="card-image">
+    <button class="card-button" (click)="mostrarDetalles(monstruo.idMonstruo)">Ver Detalles</button>
   </li>
 </ul>
 
-<a routerLink="/monstruos/nuevo">Agregar Monstruo</a>
-
+<!-- Modal para mostrar detalles -->
+<div *ngIf="monstruoSeleccionado" class="modal">
+  <div class="modal-content">
+    <h2>{{ monstruoSeleccionado.nombre }}</h2>
+    <img [src]="monstruoSeleccionado.imagen" alt="{{ monstruoSeleccionado.nombre }}">
+    <p><strong>Descripción:</strong> {{ monstruoSeleccionado.descripcion }}</p>
+    <button (click)="cerrarDetalles()">Cerrar</button>
+  </div>
+</div>

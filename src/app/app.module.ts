@@ -28,6 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MonstruoListaComponent } from "./components/monstruo-lista/monstruo-lista.component";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MonstruoListaComponent } from "./components/monstruo-lista/monstruo-lis
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule ,
     MonstruoListaComponent
 ],
   providers: [],

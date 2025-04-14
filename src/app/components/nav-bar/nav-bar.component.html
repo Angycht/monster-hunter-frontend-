@@ -1,1 +1,16 @@
-<p>nav-bar works!</p>
+<nav class="navbar">
+  <ul class="nav-list">
+    <li class="nav-item" [ngClass]="{'active': estaActivo('/')}">
+      <a (click)="navegar('/')" class="nav-link">🏠 Inicio</a>
+    </li>
+    <li class="nav-item" [ngClass]="{'active': estaActivo('/monstruos')}">
+      <a (click)="navegar('/monstruos')" class="nav-link">👾 Monstruos</a>
+    </li>
+    <li class="nav-item" [ngClass]="{'active': estaActivo('/habitats')}">
+      <a (click)="navegar('/habitats')" class="nav-link">🌿 Hábitats</a>
+    </li>
+    <li class="nav-item" [ngClass]="{'active': estaActivo('/familias')}">
+      <a (click)="navegar('/familias')" class="nav-link">👨👩👦 Familias</a>
+    </li>
+  </ul>
+</nav>

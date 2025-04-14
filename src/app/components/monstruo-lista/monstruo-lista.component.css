@@ -1,0 +1,51 @@
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #eff3ff;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedor de la tarjeta */
+.card {
+  width: 300px;
+  height: 400px;
+  background: radial-gradient(circle at top, #f0f4c3, #c8e6c9);
+  border: 2px solid gold;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+/* Imagen del monstruo */
+.card-image {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Nombre del monstruo */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Botón */
+.card-button {
+  margin-top: auto; /* Empuja el botón hacia abajo */
+  background-color: #ff6f61;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.card-button:hover {
+  background-color: #ff3d00; /* Efecto hover */
+}

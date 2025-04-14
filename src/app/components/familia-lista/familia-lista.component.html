@@ -1,1 +1,24 @@
-<p>familia-lista works!</p>
+
+
+<!-- Listado de familias -->
+<div class="familias-grid">
+  <div *ngFor="let familia of familias" class="familia-card">
+    <h3>{{ familia.nombre}}</h3>
+    <p>{{ familia.descripcion}}</p>
+    <img src="{{ familia.imagen }}" alt="{{ familia.nombre }}" class="card-image" />
+    <div class="acciones">
+      <button (click)="verDetalles(familia.idFamilia)">🔍 Detalles</button>
+      <button (click)="eliminarFamilia(familia.idFamilia)" class="delete">🗑 Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de detalles -->
+<div *ngIf="familiaSeleccionada" class="modal-overlay">
+  <div class="modal-content">
+    <h2>{{ familiaSeleccionada.descripcion }}</h2>
+
+
+    <button (click)="familiaSeleccionada = null">Cerrar</button>
+  </div>
+</div>
