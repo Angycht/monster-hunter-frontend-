@@ -27,20 +27,18 @@ export class MonstruoListaComponent implements OnInit {
     });
   }
 
-  mostrarDetalles(idMonstruo: number) {
-    // Verifica que el ID sea válido
-    if(!idMonstruo) {
-      console.error('ID no válido:', idMonstruo);
+  mostrarDetalles(idMonstruo: string | number) {
+    // Convertir a número si es string
+    const id = Number(idMonstruo);
+
+    if (isNaN(id)) {
+      console.error('ID no es un número válido:', idMonstruo);
       return;
     }
 
-    this.MonstruoService.findById(idMonstruo).subscribe({
-      next: (data) => {
-        // Manejo de datos exitoso
-      },
-      error: (err) => {
-        console.error('Error en el servidor:', err.message);
-      }
+    this.MonstruoService.findById(id).subscribe({
+      next: (data) => { /* ... */ },
+      error: (err) => { /* ... */ }
     });
   }
 

@@ -2,6 +2,7 @@
   <li *ngFor="let monstruo of monstruos" class="card">
     <h3 class="card-title">{{ monstruo.nombre }}</h3>
     <img src="{{ monstruo.imagen }}" alt="{{ monstruo.nombre }}" class="card-image">
+    <p>{{monstruo.idMonstruo}}</p>
     <button class="card-button" (click)="mostrarDetalles(monstruo.idMonstruo)">Ver Detalles</button>
   </li>
 </ul>
