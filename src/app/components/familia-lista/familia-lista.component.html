@@ -7,8 +7,7 @@
     <p>{{ familia.descripcion}}</p>
     <img src="{{ familia.imagen }}" alt="{{ familia.nombre }}" class="card-image" />
     <div class="acciones">
-      <button (click)="verDetalles(familia.idFamilia)">🔍 Detalles</button>
-      <button (click)="eliminarFamilia(familia.idFamilia)" class="delete">🗑 Eliminar</button>
+      <button (click)="verDetalles(familia.id)">Ver detalles</button>
     </div>
   </div>
 </div>

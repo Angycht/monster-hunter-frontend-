@@ -2,17 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { MonstruoService } from '../../services/monstruo.service';
 import { Monstruo } from '../../models/Monstruo';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { MonstruoDTO } from '../../models/MonstruoDTO';
 
 @Component({
   selector: 'app-monstruo-lista',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   standalone: true,
   templateUrl: './monstruo-lista.component.html',
   styleUrls: ['./monstruo-lista.component.css']
 })
 export class MonstruoListaComponent implements OnInit {
   monstruos: Monstruo[] = [];
-  monstruoSeleccionado: Monstruo | null = null;
+  monstruoSeleccionado: MonstruoDTO | null = null;
 
   constructor(private MonstruoService: MonstruoService) {}
 
@@ -28,17 +30,15 @@ export class MonstruoListaComponent implements OnInit {
   }
 
   mostrarDetalles(idMonstruo: string | number) {
-    // Convertir a número si es string
+    console.log('ID recibido:', idMonstruo);
     const id = Number(idMonstruo);
-
     if (isNaN(id)) {
       console.error('ID no es un número válido:', idMonstruo);
       return;
     }
-
     this.MonstruoService.findById(id).subscribe({
-      next: (data) => { /* ... */ },
-      error: (err) => { /* ... */ }
+      next: (data) => this.monstruoSeleccionado = data,
+      error: (err) => console.error('Error obteniendo detalles:', err)
     });
   }
 

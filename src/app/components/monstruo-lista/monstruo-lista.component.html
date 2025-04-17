@@ -2,17 +2,7 @@
   <li *ngFor="let monstruo of monstruos" class="card">
     <h3 class="card-title">{{ monstruo.nombre }}</h3>
     <img src="{{ monstruo.imagen }}" alt="{{ monstruo.nombre }}" class="card-image">
-    <p>{{monstruo.idMonstruo}}</p>
-    <button class="card-button" (click)="mostrarDetalles(monstruo.idMonstruo)">Ver Detalles</button>
+
+    <button [routerLink]="['/monstruos', monstruo.id]">Ver detalles</button>
   </li>
 </ul>
-
-<!-- Modal para mostrar detalles -->
-<div *ngIf="monstruoSeleccionado" class="modal">
-  <div class="modal-content">
-    <h2>{{ monstruoSeleccionado.nombre }}</h2>
-    <img [src]="monstruoSeleccionado.imagen" alt="{{ monstruoSeleccionado.nombre }}">
-    <p><strong>Descripción:</strong> {{ monstruoSeleccionado.descripcion }}</p>
-    <button (click)="cerrarDetalles()">Cerrar</button>
-  </div>
-</div>

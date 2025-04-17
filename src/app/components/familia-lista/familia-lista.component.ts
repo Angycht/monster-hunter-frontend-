@@ -18,10 +18,12 @@ export class FamiliaListaComponent {
   ngOnInit(): void {
     this.cargarFamilias();
   }
-
   cargarFamilias(): void {
     this.FamiliaService.findAll().subscribe({
-      next: (data) => this.familias = data,
+      next: (data) => {
+        console.log('Familias cargadas:', data);
+        this.familias = data;
+      },
       error: (err) => console.error('Error cargando familias:', err)
     });
   }
@@ -34,17 +36,21 @@ export class FamiliaListaComponent {
   }
 
   verDetalles(id: number): void {
+    console.log('ID recibido en verDetalles:', id); // <--- Agrega esto
+    if (id === undefined || id === null) {
+      console.error('ID de familia no válido:', id);
+      return;
+    }
     this.FamiliaService.findById(id).subscribe({
       next: (data) => this.familiaSeleccionada = data,
       error: (err) => console.error('Error obteniendo detalles:', err)
     });
   }
-
   eliminarFamilia(id: number): void {
     if(confirm('¿Estás seguro de eliminar esta familia?')) {
       this.FamiliaService.borrarId(id).subscribe({
         next: () => {
-          this.familias = this.familias.filter(f => f.idFamilia !== id);
+          this.familias = this.familias.filter(f => f.id!== id);
           this.familiaSeleccionada = null;
         },
         error: (err) => console.error('Error eliminando:', err)

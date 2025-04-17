@@ -1,38 +1,49 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MonstruoService } from './../../services/monstruo.service';
-import { Component } from '@angular/core';
 import { Monstruo } from '../../models/Monstruo';
+import { MonstruoDTO } from '../../models/MonstruoDTO';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-monstruo-detalle',
-  standalone: false,
-  templateUrl: './monstruo-detalle.component.html',
-  styleUrl: './monstruo-detalle.component.css'
-})
-export class MonstruoDetalleComponent {
-  monstruos: Monstruo[] = [];
-  monstruoSeleccionado: Monstruo | null = null;
+  standalone: true,
+  imports: [RouterLink,CommonModule],
 
-  constructor(private MonstruoService: MonstruoService) {}
+  templateUrl: './monstruo-detalle.component.html',
+  styleUrls: ['./monstruo-detalle.component.css']
+})
+export class MonstruoDetalleComponent implements OnInit {
+  monstruo: MonstruoDTO | null = null;
+  cargando = true;
+  error: string | null = null;
+
+  constructor(
+    private route: ActivatedRoute,
+    private monstruoService: MonstruoService
+  ) {}
 
   ngOnInit(): void {
-    this.cargarMonstruos();
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (!isNaN(id)) {
+      this.cargarMonstruo(id);
+    } else {
+      this.error = 'ID de monstruo no válido';
+      this.cargando = false;
+    }
   }
 
-  cargarMonstruos(): void {
-    this.MonstruoService.findAll().subscribe({
-      next: (data) => this.monstruos = data,
-      error: (err) => console.error('Error al cargar los monstruos:', err)
+  cargarMonstruo(id: number): void {
+    this.monstruoService.findById(id).subscribe({
+      next: (data) => {
+        console.log('MonstruoDTO recibido:', data);
+        this.monstruo = data;
+        this.cargando = false;
+      },
+      error: () => {
+        this.error = 'No se pudo cargar el monstruo';
+        this.cargando = false;
+      }
     });
-  }
-
-  mostrarDetalles(idMonstruo: number): void {
-    this.MonstruoService.findById(idMonstruo).subscribe({
-      next: (data) => this.monstruoSeleccionado = data,
-      error: (err) => console.error('Error al obtener detalles del monstruo:', err)
-    });
-  }
-
-  cerrarDetalles(): void {
-    this.monstruoSeleccionado = null;
   }
 }

@@ -1,17 +1,26 @@
-<ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-  <li *ngFor="let monstruo of monstruos" class="card">
-    <h3 class="card-title">{{ monstruo.nombre }}</h3>
-    <img src="{{ monstruo.imagen }}" alt="{{ monstruo.nombre }}" class="card-image">
-    <button class="card-button" (click)="mostrarDetalles(monstruo.idMonstruo)">Ver Detalles</button>
-  </li>
-</ul>
 
-<!-- Modal para mostrar detalles -->
-<div *ngIf="monstruoSeleccionado" class="modal">
-  <div class="modal-content">
-    <h2>{{ monstruoSeleccionado.nombre }}</h2>
-    <img [src]="monstruoSeleccionado.imagen" alt="{{ monstruoSeleccionado.nombre }}">
-    <p><strong>Descripción:</strong> {{ monstruoSeleccionado.descripcion }}</p>
-    <button (click)="cerrarDetalles()">Cerrar</button>
+<div class="detalle-container">
+  <h2>{{ monstruo?.nombre }}</h2>
+  <img
+    [src]="monstruo?.imagen"
+    [alt]="monstruo?.nombre"
+    class="detalle-imagen"
+  />
+  <p><strong>Descripción:</strong> {{ monstruo?.descripcion }}</p>
+  <p><strong>Partes rompibles:</strong> {{ monstruo?.partesRompibles }}</p>
+  <p><strong>Familia:</strong> {{ monstruo?.familia }}</p>
+  <div *ngIf="monstruo?.monstruoMaterialDto?.length">
+    <h3>Materiales</h3>
+    <ul>
+      <li *ngFor="let mat of monstruo?.monstruoMaterialDto">
+        <img [src]="mat.imagen" [alt]="mat.nombre" width="32" height="32" style="vertical-align: middle; margin-right: 8px;" />
+        {{ mat.nombre }} - Probabilidad: {{ mat.probabilidad }}%
+      </li>
+    </ul>
   </div>
+  <div *ngIf="!monstruo?.monstruoMaterialDto?.length">
+    <em>No hay materiales para este monstruo.</em>
+  </div>
+
+  <button [routerLink]="['/monstruos']">Volver</button>
 </div>

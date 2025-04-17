@@ -10,7 +10,7 @@ const routes: Routes = [
 
 
   { path: 'monstruos', component: MonstruoListaComponent },
-  { path: 'monstruos/:id', component: MonstruoListaComponent },
+  { path: 'monstruos/:id', component: MonstruoDetalleComponent },
   { path: 'monstruos/nuevo', component: MonstruoFormComponent },
   { path: 'monstruos/editar/:id', component: MonstruoFormComponent },
   { path: '', redirectTo: '/monstruos', pathMatch: 'full' },

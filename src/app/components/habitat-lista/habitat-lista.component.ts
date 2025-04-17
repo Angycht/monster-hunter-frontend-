@@ -32,11 +32,15 @@ export class HabitatListaComponent {
       error: (err) => console.error('Error en búsqueda:', err)
     });
   }
-
-  verDetalles(id: number): void {
+  verDetalles(idHabitat: any) {
+    const id = Number(idHabitat);
+    if (isNaN(id)) {
+      console.error('ID no es un número válido:', idHabitat);
+      return;
+    }
     this.HabitatService.findById(id).subscribe({
-      next: (data) => this.habitatSeleccionado = data,
-      error: (err) => console.error('Error obteniendo detalles:', err)
+      next: data => this.habitatSeleccionado = data,
+      error: err => console.error('Error obteniendo detalles:', err)
     });
   }
 

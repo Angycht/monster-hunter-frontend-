@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Monstruo } from '../models/Monstruo';
+import { MonstruoDTO } from '../models/MonstruoDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class MonstruoService {
     return this.http.get<Monstruo[]>(this.apiUrl);
   }
 
-  findById(idMonstruo: number): Observable<Monstruo> {
-    return this.http.get<Monstruo>(`${this.apiUrl}/${idMonstruo}`);
+  findById(idMonstruo: number): Observable<MonstruoDTO> {
+    return this.http.get<MonstruoDTO>(`${this.apiUrl}/${idMonstruo}`);
   }
 
   existsById(idMonstruo: number): Observable<boolean> {

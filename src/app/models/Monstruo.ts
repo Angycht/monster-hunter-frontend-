@@ -1,8 +1,7 @@
 export class Monstruo {
-  idMonstruo!: number;
+  id!: number;
   nombre!: string;
   descripcion!: string;
   imagen!: string;
   partesRompibles!: string;
-  idFamilia!: number; // Relación con Familia
 }

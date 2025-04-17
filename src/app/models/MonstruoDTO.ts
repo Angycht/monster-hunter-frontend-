@@ -1,5 +1,6 @@
 import { MonstruoHabitat } from "./MonstruoHabitat";
 import { MonstruoMaterial } from "./MonstruoMaterial";
+import { MonstruoMaterialDTO } from "./MonstruoMaterialDTO";
 
 export class MonstruoDTO {
   id!: number;
@@ -10,5 +11,5 @@ export class MonstruoDTO {
   familia!: string;
 
   monstruoHabitats?: MonstruoHabitat[];
-  monstruoMateriales?: MonstruoMaterial[];
+  monstruoMaterialDto?: MonstruoMaterialDTO[];
 }

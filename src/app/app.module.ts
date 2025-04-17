@@ -29,11 +29,11 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MonstruoListaComponent } from "./components/monstruo-lista/monstruo-lista.component";
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MonstruoDetalleComponent,
     FamiliaListaComponent,
     FamiliaDetalleComponent,
     FamiliaFormComponent,
@@ -58,6 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule ,
