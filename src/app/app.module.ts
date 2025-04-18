@@ -30,6 +30,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { MonstruoListaComponent } from "./components/monstruo-lista/monstruo-lista.component";
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RouterModule } from '@angular/router';
     NavBarComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    IndexComponent
   ],
   imports: [
     RouterModule,

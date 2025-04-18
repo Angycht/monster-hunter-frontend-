@@ -1,6 +1,3 @@
-
-
-<!-- Listado de familias -->
 <div class="familias-grid">
   <div *ngFor="let familia of familias" class="familia-card">
     <h3>{{ familia.nombre}}</h3>
@@ -9,15 +6,5 @@
     <div class="acciones">
       <button (click)="verDetalles(familia.id)">Ver detalles</button>
     </div>
-  </div>
-</div>
-
-<!-- Modal de detalles -->
-<div *ngIf="familiaSeleccionada" class="modal-overlay">
-  <div class="modal-content">
-    <h2>{{ familiaSeleccionada.descripcion }}</h2>
-
-
-    <button (click)="familiaSeleccionada = null">Cerrar</button>
   </div>
 </div>

@@ -5,6 +5,7 @@ import { MonstruoDetalleComponent } from './components/monstruo-detalle/monstruo
 import { MonstruoFormComponent } from './components/monstruo-form/monstruo-form.component';
 import { HabitatListaComponent } from './components/habitat-lista/habitat-lista.component';
 import { FamiliaListaComponent } from './components/familia-lista/familia-lista.component';
+import { HabitatDetalleComponent } from './components/habitat-detalle/habitat-detalle.component';
 
 const routes: Routes = [
 
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'monstruos/editar/:id', component: MonstruoFormComponent },
   { path: '', redirectTo: '/monstruos', pathMatch: 'full' },
   { path: 'habitats', component: HabitatListaComponent },
+  { path: 'habitats/:id', component: HabitatDetalleComponent },
+
   { path: 'familias', component: FamiliaListaComponent }
 ];
 

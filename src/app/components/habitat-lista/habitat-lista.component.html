@@ -9,13 +9,12 @@
       <img src="{{ habitat.imagen }}" alt="{{ habitat.nombre }}" class="card-image">
     </div>
     <div class="acciones">
-      <button (click)="verDetalles(habitat.idHabitat)">Ver detalles</button>
-      <button (click)="eliminarHabitat(habitat.idHabitat)" class="delete">🗑 Eliminar</button>
+      <button [routerLink]="['/habitats', habitat.idHabitat]">Ver detalles</button>
+
     </div>
   </div>
 </div>
 
-<!-- Modal de detalles -->
 <div *ngIf="habitatSeleccionado" class="modal-overlay">
   <div class="modal-content">
     <h2>{{ habitatSeleccionado.nombre }}</h2>

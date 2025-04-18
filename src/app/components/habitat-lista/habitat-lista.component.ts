@@ -22,7 +22,9 @@ export class HabitatListaComponent {
   cargarHabitats(): void {
     this.HabitatService.findAll().subscribe({
       next: (data) => this.habitats = data,
+
       error: (err) => console.error('Error cargando hábitats:', err)
+      
     });
   }
 
