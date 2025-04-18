@@ -1,1 +1,27 @@
-<p>familia-detalle works!</p>
+<div class="familia-container">
+  <div *ngIf="cargando">Cargando detalles...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="familia && !cargando && !error">
+    <h2>{{ familia.nombre }}</h2>
+    <img [src]="familia.imagen" [alt]="familia.nombre" class="familia-imagen" />
+    <p><strong>Descripción:</strong> {{ familia.descripcion }}</p>
+
+    <div class="monstruos-section">
+      <h3>Monstruos de esta familia</h3>
+      <ul *ngIf="familia.monstruos?.length; else noMonstruos">
+        <li *ngFor="let monstruo of familia.monstruos">
+          <a [routerLink]="['/monstruos', monstruo.id]">
+            {{ monstruo.nombre }}
+          </a>
+        </li>
+      </ul>
+      <ng-template #noMonstruos>
+        <em>No hay monstruos asociados a esta familia.</em>
+      </ng-template>
+    </div>
+
+    <button [routerLink]="['/familias']">Volver</button>
+  </div>
+</div>
+

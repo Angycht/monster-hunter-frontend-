@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Familia } from '../models/Familia';
+import { FamiliaDetalleDTO } from '../models/FamiliaDetalleDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,8 @@ export class FamiliaService {
 
   empiezaPor(nombre: string): Observable<Familia[]> {
     return this.http.get<Familia[]>(`${this.apiUrl}/search?nombre=${nombre}`);
+  }
+  getFamiliaDetalle(id: number): Observable<FamiliaDetalleDTO> {
+    return this.http.get<FamiliaDetalleDTO>(`${this.apiUrl}/${id}/monstruos`);
   }
 }

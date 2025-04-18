@@ -24,7 +24,7 @@ export class HabitatListaComponent {
       next: (data) => this.habitats = data,
 
       error: (err) => console.error('Error cargando hábitats:', err)
-      
+
     });
   }
 
@@ -50,7 +50,7 @@ export class HabitatListaComponent {
     if(confirm('¿Estás seguro de eliminar este hábitat?')) {
       this.HabitatService.borrarId(id).subscribe({
         next: () => {
-          this.habitats = this.habitats.filter(h => h.idHabitat !== id);
+          this.habitats = this.habitats.filter(h => h.id !== id);
           this.habitatSeleccionado = null;
         },
         error: (err) => console.error('Error eliminando:', err)

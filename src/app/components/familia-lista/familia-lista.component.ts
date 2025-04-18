@@ -1,6 +1,9 @@
 import { FamiliaService } from './../../services/familia.service';
-import { Component } from '@angular/core';
+
 import { Familia } from '../../models/Familia';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-familia-lista',

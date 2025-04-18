@@ -4,7 +4,7 @@
     <p>{{ familia.descripcion}}</p>
     <img src="{{ familia.imagen }}" alt="{{ familia.nombre }}" class="card-image" />
     <div class="acciones">
-      <button (click)="verDetalles(familia.id)">Ver detalles</button>
+      <button [routerLink]="['/familias', familia.id]">Ver detalles</button>
     </div>
   </div>
 </div>

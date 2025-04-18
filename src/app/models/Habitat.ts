@@ -1,6 +1,7 @@
 export class Habitat {
-  idHabitat!: number;
+  id!: number;
   nombre!: string;
   descripcion!: string;
   imagen!: string;
+monstruoHabitats: any;
 }
