@@ -4,4 +4,5 @@ export class Habitat {
   descripcion!: string;
   imagen!: string;
 monstruoHabitats: any;
+mapa!:string;
 }

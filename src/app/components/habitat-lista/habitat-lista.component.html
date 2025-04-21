@@ -14,18 +14,3 @@
     </div>
   </div>
 </div>
-
-<div *ngIf="habitatSeleccionado" class="modal-overlay">
-  <div class="modal-content">
-    <h2>{{ habitatSeleccionado.nombre }}</h2>
-    <div class="seccion">
-      <img src="{{habitatSeleccionado.imagen}}"/>
-    </div>
-    <div class="seccion">
-      <h4>Descripción:</h4>
-      <p>{{ habitatSeleccionado.descripcion }}</p>
-    </div>
-
-    <button (click)="habitatSeleccionado = null">Cerrar</button>
-  </div>
-</div>

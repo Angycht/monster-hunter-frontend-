@@ -1,174 +1,92 @@
-/* GRID DE HÁBITATS */
+/* habitats-grid.component.css o el CSS correspondiente */
+
 .habitats-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 2rem;
-  justify-content: center;
   padding: 2rem;
-  background: #f5f6fa;
+  background: #f4f8fb;
 }
 
-/* TARJETA DE HÁBITAT */
 .habitat-card {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.09);
-  padding: 1.5rem;
-  width: 320px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.18s, box-shadow 0.18s;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .habitat-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 8px 24px rgba(44, 62, 80, 0.15);
 }
 
 .habitat-card h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.3rem;
-  color: #2d4059;
+  color: #2b3a4a;
+  font-size: 1.35rem;
+  margin: 0.5rem 0 0.7rem 0;
   text-align: center;
 }
 
 .habitat-card p {
-  color: #555;
+  color: #4a5568;
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem 0;
   text-align: center;
+  min-height: 48px;
 }
 
-/* SECCIÓN DE IMAGEN */
 .seccion {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .card-image {
-  width: 220px;
-  height: 140px;
+  width: 100%;
+  max-width: 180px;
+  max-height: 140px;
   object-fit: cover;
-  border-radius: 8px;
-  background: #eee;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.09);
+  background: #e3eaf2;
 }
 
-/* ACCIONES */
 .acciones {
-  margin-top: auto;
-  width: 100%;
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  width: 100%;
 }
 
 .acciones button {
+  padding: 0.7rem 1.5rem;
   background: #1976d2;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.16s;
+  transition: background 0.2s;
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.07);
 }
 
 .acciones button:hover {
-  background: #1565c0;
+  background: #125ea8;
 }
 
-.acciones .delete {
-  background: #e53935;
-}
-
-.acciones .delete:hover {
-  background: #b71c1c;
-}
-
-/* MODAL */
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(44, 62, 80, 0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.modal-content {
-  background: #fff;
-  border-radius: 14px;
-  padding: 2.5rem 2rem;
-  max-width: 410px;
-  width: 90vw;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: modalIn 0.2s;
-}
-
-@keyframes modalIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-
-.modal-content h2 {
-  margin: 0 0 1rem 0;
-  color: #1976d2;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.modal-content .seccion img {
-  width: 260px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  background: #eee;
-}
-
-.modal-content h4 {
-  margin: 0.5rem 0 0.25rem 0;
-  color: #2d4059;
-}
-
-.modal-content button {
-  margin-top: 1.5rem;
-  background: #1976d2;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.16s;
-}
-
-.modal-content button:hover {
-  background: #1565c0;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .habitat-card {
-    width: 95vw;
-    max-width: 400px;
-  }
+/* Responsive adjustments */
+@media (max-width: 600px) {
   .habitats-grid {
+    grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem;
   }
-  .modal-content .seccion img {
-    width: 90vw;
-    max-width: 260px;
-    height: 120px;
+  .habitat-card {
+    padding: 1rem 0.5rem;
   }
 }

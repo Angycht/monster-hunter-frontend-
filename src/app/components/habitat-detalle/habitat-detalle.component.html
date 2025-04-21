@@ -7,20 +7,8 @@
     <h2>{{ habitat.nombre }}</h2>
     <img [src]="habitat.imagen" [alt]="habitat.nombre" class="habitat-image">
     <p>{{ habitat.descripcion }}</p>
+    <img [src]="habitat.mapa" [alt]="habitat.nombre" class="habitat-image">
 
-    <div class="monsters-section">
-      <h3>Monstruos en este hábitat</h3>
-      <ul *ngIf="habitat.monstruoHabitats?.length; else noMonsters">
-        <li *ngFor="let mh of habitat.monstruoHabitats">
-          <a [routerLink]="['/monstruos', mh.monstruo.id]">
-            {{ mh.monstruo.nombre }}
-          </a>
-        </li>
-      </ul>
-      <ng-template #noMonsters>
-        <p class="no-data">No hay monstruos registrados en este hábitat</p>
-      </ng-template>
-    </div>
 
     <button [routerLink]="['/habitats']" class="back-button">Volver a hábitats</button>
   </div>

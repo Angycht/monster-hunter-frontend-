@@ -1,7 +1,6 @@
 <div class="familias-grid">
   <div *ngFor="let familia of familias" class="familia-card">
     <h3>{{ familia.nombre}}</h3>
-    <p>{{ familia.descripcion}}</p>
     <img src="{{ familia.imagen }}" alt="{{ familia.nombre }}" class="card-image" />
     <div class="acciones">
       <button [routerLink]="['/familias', familia.id]">Ver detalles</button>

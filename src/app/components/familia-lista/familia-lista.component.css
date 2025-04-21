@@ -41,7 +41,7 @@
 
 .card-image {
   width: 100%;
-  max-width: 220px;
+  max-width: 200px;
   height: 140px;
   object-fit: cover;
   border-radius: 8px;
