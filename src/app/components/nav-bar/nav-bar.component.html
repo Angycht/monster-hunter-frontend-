@@ -1,7 +1,7 @@
 <nav class="navbar">
   <ul class="nav-list">
     <li class="nav-item" [ngClass]="{'active': estaActivo('/')}">
-      <a (click)="navegar('/')" class="nav-link">🏠 Inicio</a>
+      <a (click)="navegar('/inicio')" class="nav-link">🏠 Inicio</a>
     </li>
     <li class="nav-item" [ngClass]="{'active': estaActivo('/monstruos')}">
       <a (click)="navegar('/monstruos')" class="nav-link">👾 Monstruos</a>

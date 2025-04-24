@@ -1,0 +1,59 @@
+body {
+  background: #181818;
+  color: #f5f5f5;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 40px 0 20px 0;
+  background: linear-gradient(180deg, #232526 0%, #181818 100%);
+}
+
+header img {
+  max-width: 480px;
+  width: 90%;
+  height: auto;
+  filter: drop-shadow(0 4px 24px #000a);
+}
+
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(34, 34, 34, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px #000a;
+}
+
+.story, .gameplay {
+  margin-bottom: 36px;
+}
+
+.story p, .gameplay p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+p{
+  color: beige;
+}
+iframe {
+  display: block;
+  margin: 32px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px #000a;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 8px;
+  }
+  iframe {
+    width: 98vw;
+    height: 56vw;
+    min-height: 200px;
+  }
+}
