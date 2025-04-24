@@ -12,5 +12,8 @@
     <li class="nav-item" [ngClass]="{'active': estaActivo('/familias')}">
       <a (click)="navegar('/familias')" class="nav-link">👨👩👦 Familias</a>
     </li>
+    <div class="navbar-right">
+      <a (click)="navegar('/login')" class="btn-login">Iniciar sesión</a>
+    </div>
   </ul>
 </nav>

@@ -8,6 +8,8 @@ import { FamiliaListaComponent } from './components/familia-lista/familia-lista.
 import { HabitatDetalleComponent } from './components/habitat-detalle/habitat-detalle.component';
 import { FamiliaDetalleComponent } from './components/familia-detalle/familia-detalle.component';
 import { IndexComponent } from './components/index/index.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
 
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'habitats', component: HabitatListaComponent },
   { path: 'habitats/:id', component: HabitatDetalleComponent },
   { path: 'familias/:id', component: FamiliaDetalleComponent },
-  { path: 'familias', component: FamiliaListaComponent }
+  { path: 'familias', component: FamiliaListaComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegisterComponent }
 ];
 
 @NgModule({

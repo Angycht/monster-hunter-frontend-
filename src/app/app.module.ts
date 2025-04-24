@@ -31,6 +31,7 @@ import { MonstruoListaComponent } from "./components/monstruo-lista/monstruo-lis
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { IndexComponent } from './components/index/index.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule ,
+    FormsModule,
     MonstruoListaComponent
 ],
   providers: [],

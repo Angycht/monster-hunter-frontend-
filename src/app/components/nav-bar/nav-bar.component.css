@@ -61,6 +61,20 @@
   background: rgba(255, 255, 255, 0.1);
   color: #e74c3c;
 }
+.btn-login {
+  background-color: #ff6600;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #e65c00;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
