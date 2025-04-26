@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,14 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
   username = '';
   password = '';
-  message = '';
+  error = '';
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
-  onLogin() {
+  login() {
     this.auth.login(this.username, this.password).subscribe({
-      next: () => {
-        this.auth.setLoggedIn(true);
-        this.message = 'Sesión iniciada correctamente';
-        // Redirige a la página principal o dashboard
-      },
-      error: (err) => (this.message = 'Usuario o contraseña incorrectos'),
+      next: () => this.router.navigate(['/profile']),
+      error: () => this.error = 'Usuario o contraseña incorrectos'
     });
   }
 }

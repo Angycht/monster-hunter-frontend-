@@ -10,6 +10,8 @@ import { FamiliaDetalleComponent } from './components/familia-detalle/familia-de
 import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
 
@@ -25,7 +27,8 @@ const routes: Routes = [
   { path: 'familias/:id', component: FamiliaDetalleComponent },
   { path: 'familias', component: FamiliaListaComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegisterComponent }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

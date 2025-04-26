@@ -10,26 +10,23 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
-  message: string = '';
+  username = '';
+  password = '';
+  success = '';
+  error = '';
 
-  constructor(private userService: UsuarioService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   register() {
-    if (this.password !== this.confirmPassword) {
-      this.message = 'Las contraseñas no coinciden';
-      return;
-    }
-    const user = { email: this.email, password: this.password };
-    this.userService.register(user).subscribe({
+    this.auth.register(this.username, this.password).subscribe({
       next: () => {
-        this.message = 'Usuario registrado correctamente';
-        setTimeout(() => this.router.navigate(['/login']), 1500);
+        this.success = 'Usuario registrado correctamente. Ahora puedes iniciar sesión.';
+        this.error = '';
+        setTimeout(() => this.router.navigate(['/']), 2000);
       },
-      error: err => {
-        this.message = 'Error en el registro';
+      error: () => {
+        this.error = 'No se pudo registrar el usuario';
+        this.success = '';
       }
     });
   }
