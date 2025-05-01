@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Monstruo } from '../models/Monstruo';
 import { MonstruoDTO } from '../models/MonstruoDTO';
+import { MonstruoMaterialDTO } from '../models/MonstruoMaterialDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,9 @@ export class MonstruoService {
 
   empiezaPor(nombre: string): Observable<Monstruo[]> {
     return this.http.get<Monstruo[]>(`${this.apiUrl}/search?nombre=${nombre}`);
+  }
+
+  simularCombate(idMonstruo: number): Observable<MonstruoMaterialDTO[]> {
+    return this.http.post<MonstruoMaterialDTO[]>(`${this.apiUrl}/simular/${idMonstruo}`, null);
   }
 }

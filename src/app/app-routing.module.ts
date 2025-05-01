@@ -11,7 +11,7 @@ import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { AuthGuard } from './guard/auth.guard';
+import { AuthGuard } from './guard/Auth.guard';
 
 const routes: Routes = [
 

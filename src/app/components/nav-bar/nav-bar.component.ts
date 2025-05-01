@@ -1,3 +1,5 @@
+import { AuthService } from './../../services/auth.service';
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router , public authService: AuthService) {}
 
   navegar(ruta: string): void {
     this.router.navigate([ruta]);
@@ -21,5 +23,9 @@ export class NavBarComponent {
       fragment: 'ignored',
       matrixParams: 'ignored'
     });
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

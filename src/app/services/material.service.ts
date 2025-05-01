@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Material } from '../models/Material';
+import { MonstruoMaterialDTO } from '../models/MonstruoMaterialDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,4 @@ export class MaterialService {
     return this.http.get<Material[]>(`${this.apiUrl}/search?nombre=${nombre}`);
   }
 
-  simularCombate(materialId: number): Observable<string> {
-    return this.http.get<string>(`${this.apiUrl}/simularCombate/${materialId}`);
-  }
 }

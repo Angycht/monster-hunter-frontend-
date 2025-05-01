@@ -12,10 +12,12 @@
     <li class="nav-item" [ngClass]="{'active': estaActivo('/familias')}">
       <a (click)="navegar('/familias')" class="nav-link">👨👩👦 Familias</a>
     </li>
-    <div class="navbar-right">
       <a (click)="navegar('/login')" class="nav-link">Login</a> |
       <a (click)="navegar('/register')" class="nav-link">Registro</a> |
       <a (click)="navegar('/profile')" class="nav-link">Perfil</a>
-    </div>
+  
+    <button (click)="logout()" class="btn btn-outline-danger">
+      <i class="fa fa-sign-out"></i> Logout
+    </button>
   </ul>
 </nav>

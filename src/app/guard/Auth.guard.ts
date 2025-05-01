@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
       return true;
     } else {
       // Redirige al login si no está autenticado
-      return this.router.parseUrl('/');
+      return this.router.parseUrl('/login');
     }
   }
 
@@ -23,5 +23,12 @@ export class AuthGuard implements CanActivate {
       { username, password },
       { responseType: 'text' }
     );
+  }
+  logout() {
+    this.authService.logout();
+    // Opcional: muestra un mensaje de éxito
+    alert('Has cerrado sesión correctamente.');
+    // Redirige al login
+    this.router.navigate(['/login']);
   }
 }
