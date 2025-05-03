@@ -1,6 +1,6 @@
 
 <h2>Perfil</h2>
-<div *ngIf="profile">
-  <pre>{{profile | json}}</pre>
-</div>
-<div *ngIf="!profile">Cargando...</div>
+  <ul class="profile-list">
+    <li><strong>Usuario:</strong> {{ profile.username }}</li>
+   
+  </ul>

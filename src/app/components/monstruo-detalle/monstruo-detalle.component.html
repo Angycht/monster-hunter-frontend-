@@ -17,11 +17,32 @@
         {{ mat.nombre }} - Probabilidad: {{ mat.probabilidad }}%
       </li>
     </ul>
- 
+
   </div>
   <div *ngIf="!monstruo?.monstruoMaterialDto?.length">
     <em>No hay materiales para este monstruo.</em>
   </div>
+  <div class="simulador-combate">
+    <button (click)="simularCombate()" [disabled]="simulando">Simular combate</button>
 
+    <div *ngIf="simulando">Simulando...</div>
+
+    <div *ngIf="materiales.length > 0">
+      <h3>Materiales obtenidos:</h3>
+      <ul>
+        <li *ngFor="let material of materiales">
+          <strong>{{ material.nombre }}</strong>
+          <span *ngIf="material.imagen">
+            <img [src]="'assets/' + monstruo?.familia" [alt]="material.nombre" width="32">
+          </span>
+
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="error" class="text-danger">
+      {{ error }}
+    </div>
+  </div>
   <button [routerLink]="['/monstruos']">Volver</button>
 </div>

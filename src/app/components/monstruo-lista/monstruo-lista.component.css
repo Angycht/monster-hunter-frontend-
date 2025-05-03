@@ -8,7 +8,7 @@ body {
 
 /* Contenedor de la tarjeta */
 .card {
-  width: 300px;
+  width: 400px;
   height: 400px;
   background: radial-gradient(circle at top, #f0f4c3, #c8e6c9);
   border: 2px solid gold;
@@ -22,8 +22,8 @@ body {
 
 /* Imagen del monstruo */
 .card-image {
-  width: 80%;
-  height: auto;
+  width:85%;
+  height:80%;
   border-radius: 10px;
 }
 

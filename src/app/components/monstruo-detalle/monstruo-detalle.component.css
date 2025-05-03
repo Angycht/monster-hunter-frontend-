@@ -1,5 +1,5 @@
 .detalle-container {
-  max-width: 420px;
+  max-width: 450px;
   margin: 2em auto;
   padding: 2em 1.5em 1.5em 1.5em;
   border-radius: 16px;
@@ -10,7 +10,7 @@
 }
 
 .detalle-imagen {
-  max-width: 180px;
+  max-width: 400px;
   border-radius: 12px;
   margin-bottom: 1.5em;
   box-shadow: 0 1px 8px rgba(0,0,0,0.08);

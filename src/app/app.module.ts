@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MonstruoDetalleComponent } from './components/monstruo-detalle/monstruo-detalle.component';
-import { MonstruoFormComponent } from './components/monstruo-form/monstruo-form.component';
 import { FamiliaListaComponent } from './components/familia-lista/familia-lista.component';
 import { FamiliaDetalleComponent } from './components/familia-detalle/familia-detalle.component';
 import { FamiliaFormComponent } from './components/familia-form/familia-form.component';
@@ -34,7 +32,6 @@ import { IndexComponent } from './components/index/index.component';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
-import { SimuladorComponent } from './components/simulador/simulador.component';
 
 @NgModule({
   declarations: [
@@ -62,8 +59,7 @@ import { SimuladorComponent } from './components/simulador/simulador.component';
     LoginComponent,
     RegisterComponent,
     IndexComponent,
-    ProfileComponent,
-    SimuladorComponent
+    ProfileComponent
   ],
   imports: [
     RouterModule,
