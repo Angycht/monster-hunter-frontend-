@@ -32,6 +32,8 @@ import { IndexComponent } from './components/index/index.component';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AdministradorComponentComponent } from './components/administrador-component/administrador-component.component';
+import { AccesoDenegadoComponent } from './components/acceso-denegado/acceso-denegado.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     IndexComponent,
-    ProfileComponent
+    ProfileComponent,
+    AccesoDenegadoComponent,
+    AdministradorComponentComponent
   ],
   imports: [
     RouterModule,

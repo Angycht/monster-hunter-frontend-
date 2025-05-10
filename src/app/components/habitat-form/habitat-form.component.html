@@ -1,1 +1,24 @@
-<p>habitat-form works!</p>
+<h3>Crear Hábitat</h3>
+<form (ngSubmit)="crearHabitat()">
+  <input [(ngModel)]="habitat.nombre" name="nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="habitat.descripcion" name="descripcion" placeholder="Descripción" required>
+  <input [(ngModel)]="habitat.imagen" name="imagen" placeholder="Imagen">
+  <input [(ngModel)]="habitat.mapa" name="mapa" placeholder="Mapa">
+  <button type="submit">Crear</button>
+</form>
+
+<h3>Actualizar Hábitat</h3>
+<form (ngSubmit)="actualizarHabitat()">
+  <input [(ngModel)]="habitat.id" name="id" placeholder="ID" required>
+  <input [(ngModel)]="habitat.nombre" name="nombre" placeholder="Nombre">
+  <input [(ngModel)]="habitat.descripcion" name="descripcion" placeholder="Descripción">
+  <input [(ngModel)]="habitat.imagen" name="imagen" placeholder="Imagen">
+  <input [(ngModel)]="habitat.mapa" name="mapa" placeholder="Mapa">
+  <button type="submit">Actualizar</button>
+</form>
+
+<h3>Eliminar Hábitat</h3>
+<form (ngSubmit)="eliminarHabitat()">
+  <input [(ngModel)]="habitat.id" name="id" placeholder="ID" required>
+  <button type="submit">Eliminar</button>
+</form>

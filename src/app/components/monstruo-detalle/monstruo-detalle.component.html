@@ -33,7 +33,7 @@
         <li *ngFor="let material of materiales">
           <strong>{{ material.nombre }}</strong>
           <span *ngIf="material.imagen">
-            <img [src]="'assets/' + monstruo?.familia" [alt]="material.nombre" width="32">
+            <img [src]=" material.imagen"  [alt]="material.nombre" width="32">
           </span>
 
         </li>

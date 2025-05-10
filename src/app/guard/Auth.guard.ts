@@ -31,4 +31,11 @@ export class AuthGuard implements CanActivate {
     // Redirige al login
     this.router.navigate(['/login']);
   }
+  isAdmin(): boolean {
+    if (this.authService.isAdmin()) {
+      return true;
+    }
+    this.router.navigate(['/acceso-denegado']);
+    return false;
+  }
 }
