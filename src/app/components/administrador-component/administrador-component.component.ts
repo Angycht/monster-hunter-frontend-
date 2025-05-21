@@ -1,21 +1,20 @@
-import { AuthService } from './../../services/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { FamiliaFormComponent } from '../familia-form/familia-form.component';
 import { HabitatFormComponent } from '../habitat-form/habitat-form.component';
 import { MaterialFormComponent } from '../material-form/material-form.component';
 import { MonstruoFormComponent } from '../monstruo-form/monstruo-form.component';
 import { MonstruoHabitatFormComponent } from '../monstruo-habitat-form/monstruo-habitat-form.component';
-import { MonstruoMaterialFormComponent } from '../monstruo-material-form/monstruo-material-form.component';
-import { Component, Injector, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { MonstruoMaterialFormComponent } from '../monstruo-material-form/monstruo-material-form.component copy';
 
 @Component({
   selector: 'app-administrador-component',
-  standalone: false,
+  standalone:false,
   templateUrl: './administrador-component.component.html',
-  styleUrls: ['./administrador-component.component.css']
+  styleUrl: './administrador-component.component.css'
 })
 export class AdministradorComponentComponent implements OnInit {
-  verbos = ['POST', 'PUT', 'DELETE'];
   entidades = [
     { label: 'Familia', component: FamiliaFormComponent },
     { label: 'Habitat', component: HabitatFormComponent },
@@ -25,13 +24,11 @@ export class AdministradorComponentComponent implements OnInit {
     { label: 'MonstruoMaterial', component: MonstruoMaterialFormComponent }
   ];
 
-  verboSeleccionado: string = '';
   entidadSeleccionada: any = null;
 
   constructor(
     public authService: AuthService,
-    private router: Router,
-    private injector: Injector
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -43,13 +40,4 @@ export class AdministradorComponentComponent implements OnInit {
   get componenteEntidad() {
     return this.entidadSeleccionada ? this.entidadSeleccionada.component : null;
   }
-  createInjector() {
-    if (!this.componenteEntidad) return this.injector;
-    return Injector.create({
-      providers: [
-        { provide: 'verbo', useValue: this.verboSeleccionado }
-      ],
-      parent: this.injector
-    });
-}
 }

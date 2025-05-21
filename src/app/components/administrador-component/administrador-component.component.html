@@ -1,12 +1,6 @@
 <div class="admin-panel">
   <h2>Administrador de Entidades</h2>
   <form>
-    <label for="verbo">Verbo HTTP:</label>
-    <select id="verbo" [(ngModel)]="verboSeleccionado" name="verbo">
-      <option value="">Selecciona un verbo</option>
-      <option *ngFor="let verbo of verbos" [value]="verbo">{{ verbo }}</option>
-    </select>
-
     <label for="entidad">Entidad:</label>
     <select id="entidad" [(ngModel)]="entidadSeleccionada" name="entidad">
       <option [ngValue]="null">Selecciona una entidad</option>
@@ -14,7 +8,7 @@
     </select>
   </form>
 
-  <div class="admin-form-container" *ngIf="verboSeleccionado && componenteEntidad">
+  <div class="admin-form-container" *ngIf="componenteEntidad">
     <ng-container *ngComponentOutlet="componenteEntidad"></ng-container>
   </div>
 </div>

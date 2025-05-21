@@ -6,7 +6,11 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService,  private http: HttpClient,private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   canActivate(): boolean | UrlTree {
     if (this.authService.isLoggedIn()) {
@@ -26,7 +30,6 @@ export class AuthGuard implements CanActivate {
   }
   logout() {
     this.authService.logout();
-    // Opcional: muestra un mensaje de éxito
     alert('Has cerrado sesión correctamente.');
     // Redirige al login
     this.router.navigate(['/login']);

@@ -3,7 +3,7 @@ import { HabitatService } from '../../services/habitat.service';
 
 @Component({
   selector: 'app-habitat-form',
-  standalone: false,
+  standalone:false,
   templateUrl: './habitat-form.component.html',
   styleUrl: './habitat-form.component.css'
 })

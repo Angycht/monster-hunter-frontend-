@@ -1,25 +1,53 @@
 
 <h3>Crear Monstruo-Material</h3>
-<form (ngSubmit)="crearMonstruoMaterial()">
-  <input [(ngModel)]="monstruoMaterial.nombre" name="nombre" placeholder="Nombre" required>
-  <input [(ngModel)]="monstruoMaterial.probabilidad" name="probabilidad" type="number" placeholder="Probabilidad">
-  <input [(ngModel)]="monstruoMaterial.imagen" name="imagen" placeholder="Imagen">
-  <input [(ngModel)]="monstruoMaterial.nombreMonstruo" name="nombreMonstruo" placeholder="Nombre Monstruo">
-  <button type="submit">Crear</button>
+<form (ngSubmit)="crearMonstruoMaterial()" #mmForm="ngForm" class="mm-form">
+  <div class="form-group">
+    <label for="idMonstruo">Monstruo</label>
+    <select
+      id="idMonstruo"
+      name="idMonstruo"
+      [(ngModel)]="monstruoMaterial.idMonstruo"
+      required
+      class="form-control"
+    >
+      <option [ngValue]="null">Selecciona un monstruo</option>
+      <option *ngFor="let m of monstruos" [ngValue]="m.id">{{ m.nombre }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="idMaterial">Material</label>
+    <select
+      id="idMaterial"
+      name="idMaterial"
+      [(ngModel)]="monstruoMaterial.idMaterial"
+      required
+      class="form-control"
+    >
+      <option [ngValue]="null">Selecciona un material</option>
+      <option *ngFor="let mat of materiales" [ngValue]="mat.id">{{ mat.nombre }}</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="mmForm.invalid" class="btn btn-primary">
+    Asociar Monstruo y Material
+  </button>
 </form>
+
 
 <h3>Actualizar Monstruo-Material</h3>
 <form (ngSubmit)="actualizarMonstruoMaterial()">
-  <input [(ngModel)]="monstruoMaterial.id" name="id" placeholder="ID" required>
-  <input [(ngModel)]="monstruoMaterial.nombre" name="nombre" placeholder="Nombre">
-  <input [(ngModel)]="monstruoMaterial.probabilidad" name="probabilidad" type="number" placeholder="Probabilidad">
-  <input [(ngModel)]="monstruoMaterial.imagen" name="imagen" placeholder="Imagen">
-  <input [(ngModel)]="monstruoMaterial.nombreMonstruo" name="nombreMonstruo" placeholder="Nombre Monstruo">
-  <button type="submit">Actualizar</button>
+   <input [(ngModel)]="monstruoMaterial.id"  name="id" placeholder="ID" required     class="form-control">
+  <input [(ngModel)]="monstruoMaterial.id" name="id" placeholder="ID" required    class="form-control">
+  <input [(ngModel)]="monstruoMaterial.nombre" name="nombre" placeholder="Nombre"    class="form-control">
+  <input [(ngModel)]="monstruoMaterial.probabilidad" name="probabilidad" type="number" placeholder="Probabilidad"    class="form-control">
+  <input [(ngModel)]="monstruoMaterial.imagen" name="imagen" placeholder="Imagen"    class="form-control">
+  <input [(ngModel)]="monstruoMaterial.nombreMonstruo" name="nombreMonstruo" placeholder="Nombre Monstruo"    class="form-control">
+  <button type="submit"  class="btn btn-primary">Actualizar</button>
 </form>
 
 <h3>Eliminar Monstruo-Material</h3>
 <form (ngSubmit)="eliminarMonstruoMaterial()">
-  <input [(ngModel)]="monstruoMaterial.id" name="id" placeholder="ID" required>
-  <button type="submit">Eliminar</button>
+  <input [(ngModel)]="monstruoMaterial.id" name="id" placeholder="ID" required  class="form-control">
+  <button type="submit"  class="btn btn-primary">Eliminar</button>
 </form>

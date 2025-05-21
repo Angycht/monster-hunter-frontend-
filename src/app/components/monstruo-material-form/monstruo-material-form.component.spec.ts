@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MonstruoMaterialFormComponent } from './monstruo-material-form.component';
+import { MonstruoMaterialFormComponent } from '../monstruo-material-form/monstruo-material-form.component copy';
 
 describe('MonstruoMaterialFormComponent', () => {
   let component: MonstruoMaterialFormComponent;

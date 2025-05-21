@@ -9,7 +9,7 @@ import { MonstruoMaterialDTO } from '../models/MonstruoMaterialDTO';
 })
 export class MaterialService {
 
-  private apiUrl = 'http://localhost:8080/monster_hunter/api/materiales'; // Ajusta la URL
+  private apiUrl = 'http://localhost:8080/monster_hunter/api/materiales'; 
 
   constructor(private http: HttpClient) { }
 

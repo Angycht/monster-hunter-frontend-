@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MonstruoHabitatService } from '../../services/monstruo-habitat.service';
+import { MonstruoService } from '../../services/monstruo.service';
+import { HabitatService } from '../../services/habitat.service';
 
 @Component({
   selector: 'app-monstruo-habitat-form',
@@ -7,10 +9,21 @@ import { MonstruoHabitatService } from '../../services/monstruo-habitat.service'
   templateUrl: './monstruo-habitat-form.component.html',
   styleUrl: './monstruo-habitat-form.component.css'
 })
-export class MonstruoHabitatFormComponent {
+export class MonstruoHabitatFormComponent implements OnInit {
   monstruoHabitat: any = {};
+  monstruos: any[] = [];
+  habitats: any[] = [];
 
-  constructor(private monstruoHabitatService: MonstruoHabitatService) {}
+  constructor(
+    private monstruoHabitatService: MonstruoHabitatService,
+    private monstruoService: MonstruoService,
+    private habitatService: HabitatService
+  ) {}
+
+  ngOnInit() {
+    this.monstruoService.findAll().subscribe(data => this.monstruos = data);
+    this.habitatService.findAll().subscribe(data => this.habitats = data);
+  }
 
   crearMonstruoHabitat() {
     this.monstruoHabitatService.create(this.monstruoHabitat).subscribe(resp => {
@@ -18,7 +31,6 @@ export class MonstruoHabitatFormComponent {
       this.monstruoHabitat = {};
     });
   }
-
   actualizarMonstruoHabitat() {
     this.monstruoHabitatService.save( this.monstruoHabitat).subscribe(resp => {
       alert('Monstruo-Hábitat actualizado');

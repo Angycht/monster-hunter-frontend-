@@ -29,8 +29,11 @@ export class MonstruoMaterialService {
   }
 
   save(monstruoMaterial: MonstruoMaterial): Observable<MonstruoMaterial> {
-    return this.http.put<MonstruoMaterial>(this.apiUrl, monstruoMaterial);
-  }
+  return this.http.put<MonstruoMaterial>(
+    `${this.apiUrl}/${monstruoMaterial.id}`,
+    monstruoMaterial
+  );
+}
 
   borrarId(idMonstruoMaterial: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/${idMonstruoMaterial}`);

@@ -3,6 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { IndexComponent } from './components/index/index.component';
+import { FormsModule } from '@angular/forms';
+import { AuthInterceptor } from './auth.interceptor';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AccesoDenegadoComponent } from './components/acceso-denegado/acceso-denegado.component';
+import { AdministradorComponentComponent } from './components/administrador-component/administrador-component.component';
+import { MonstruoFormComponent } from './components/monstruo-form/monstruo-form.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 import { FamiliaListaComponent } from './components/familia-lista/familia-lista.component';
 import { FamiliaDetalleComponent } from './components/familia-detalle/familia-detalle.component';
 import { FamiliaFormComponent } from './components/familia-form/familia-form.component';
@@ -15,7 +26,6 @@ import { MaterialFormComponent } from './components/material-form/material-form.
 import { MonstruoHabitatListaComponent } from './components/monstruo-habitat-lista/monstruo-habitat-lista.component';
 import { MonstruoHabitatFormComponent } from './components/monstruo-habitat-form/monstruo-habitat-form.component';
 import { MonstruoMaterialListaComponent } from './components/monstruo-material-lista/monstruo-material-lista.component';
-import { MonstruoMaterialFormComponent } from './components/monstruo-material-form/monstruo-material-form.component';
 import { UsuarioListaComponent } from './components/usuario-lista/usuario-lista.component';
 import { UsuarioDetalleComponent } from './components/usuario-detalle/usuario-detalle.component';
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
@@ -23,17 +33,8 @@ import { RolListaComponent } from './components/rol-lista/rol-lista.component';
 import { RolFormComponent } from './components/rol-form/rol-form.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { MonstruoListaComponent } from "./components/monstruo-lista/monstruo-lista.component";
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { IndexComponent } from './components/index/index.component';
-import { FormsModule } from '@angular/forms';
-import { AuthInterceptor } from './auth.interceptor';
-import { ProfileComponent } from './components/profile/profile.component';
-import { AdministradorComponentComponent } from './components/administrador-component/administrador-component.component';
-import { AccesoDenegadoComponent } from './components/acceso-denegado/acceso-denegado.component';
+import { MonstruoMaterialFormComponent } from './components/monstruo-material-form/monstruo-material-form.component copy';
+import { MonstruoListaComponent } from './components/monstruo-lista/monstruo-lista.component';
 
 @NgModule({
   declarations: [
@@ -43,15 +44,14 @@ import { AccesoDenegadoComponent } from './components/acceso-denegado/acceso-den
     FamiliaFormComponent,
     HabitatListaComponent,
     HabitatDetalleComponent,
-    HabitatFormComponent,
     MaterialListaComponent,
     MaterialDetalleComponent,
     MaterialFormComponent,
     MonstruoHabitatListaComponent,
     MonstruoHabitatFormComponent,
     MonstruoMaterialListaComponent,
-    MonstruoMaterialFormComponent,
     UsuarioListaComponent,
+    HabitatFormComponent,
     UsuarioDetalleComponent,
     UsuarioFormComponent,
     RolListaComponent,
@@ -63,16 +63,20 @@ import { AccesoDenegadoComponent } from './components/acceso-denegado/acceso-den
     IndexComponent,
     ProfileComponent,
     AccesoDenegadoComponent,
-    AdministradorComponentComponent
+    AdministradorComponentComponent,
+    MonstruoFormComponent,
+    MonstruoMaterialFormComponent,
+    MonstruoHabitatFormComponent
+
   ],
   imports: [
     RouterModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule ,
+    HttpClientModule,
     FormsModule,
     MonstruoListaComponent
-],
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],

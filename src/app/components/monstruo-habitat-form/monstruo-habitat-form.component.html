@@ -1,13 +1,42 @@
-<h3>Crear Monstruo-Hábitat</h3>
-<form (ngSubmit)="crearMonstruoHabitat()">
-  <input [(ngModel)]="monstruoHabitat.nombre" name="nombre" placeholder="Nombre" required>
-  <input [(ngModel)]="monstruoHabitat.descripcion" name="descripcion" placeholder="Descripción">
-  <input [(ngModel)]="monstruoHabitat.imagen" name="imagen" placeholder="Imagen">
-  <button type="submit">Crear</button>
+<form (ngSubmit)="crearMonstruoHabitat()" #mhForm="ngForm" class="mh-form">
+  <div class="form-group">
+    <label for="idMonstruo">Monstruo</label>
+    <select
+      id="idMonstruo"
+      name="idMonstruo"
+      [(ngModel)]="monstruoHabitat.idMonstruo"
+      required
+      class="form-control"
+    >
+      <option [ngValue]="null">Selecciona un monstruo</option>
+      <option *ngFor="let m of monstruos" [ngValue]="m.id">{{ m.nombre }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="idHabitat">Hábitat</label>
+    <select
+      id="idHabitat"
+      name="idHabitat"
+      [(ngModel)]="monstruoHabitat.idHabitat"
+      required
+      class="form-control"
+    >
+      <option [ngValue]="null">Selecciona un hábitat</option>
+      <option *ngFor="let h of habitats" [ngValue]="h.id">{{ h.nombre }}</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="mhForm.invalid" class="btn btn-primary">
+    Asociar Monstruo y Hábitat
+  </button>
 </form>
+
 
 <h3>Actualizar Monstruo-Hábitat</h3>
 <form (ngSubmit)="actualizarMonstruoHabitat()">
+  <input [(ngModel)]="monstruoHabitat.id" name="id" placeholder="ID" required>
+
   <input [(ngModel)]="monstruoHabitat.id" name="id" placeholder="ID" required>
   <input [(ngModel)]="monstruoHabitat.nombre" name="nombre" placeholder="Nombre">
   <input [(ngModel)]="monstruoHabitat.descripcion" name="descripcion" placeholder="Descripción">

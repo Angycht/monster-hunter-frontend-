@@ -3,7 +3,7 @@ import { FamiliaService } from '../../services/familia.service';
 
 @Component({
   selector: 'app-familia-form',
-  standalone: false,
+  standalone:false,
   templateUrl: './familia-form.component.html',
   styleUrl: './familia-form.component.css'
 })

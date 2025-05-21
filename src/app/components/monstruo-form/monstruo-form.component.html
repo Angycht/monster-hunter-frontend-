@@ -1,0 +1,164 @@
+<form (ngSubmit)="crearMonstruo()" #monstruoForm="ngForm" class="monstruo-form">
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      [(ngModel)]="monstruo.nombre"
+      required
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="descripcion">Descripción</label>
+    <textarea
+      id="descripcion"
+      name="descripcion"
+      [(ngModel)]="monstruo.descripcion"
+      required
+      class="form-control"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="partesRompibles">Partes Rompibles</label>
+    <input
+      type="text"
+      id="partesRompibles"
+      name="partesRompibles"
+      [(ngModel)]="monstruo.partesRompibles"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="imagen">URL de Imagen</label>
+    <input
+      type="text"
+      id="imagen"
+      name="imagen"
+      [(ngModel)]="monstruo.imagen"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="familia">Familia</label>
+    <select
+      id="familia"
+      name="familia"
+      [(ngModel)]="monstruo.familiaId"
+      required
+      class="form-control"
+    >
+      <option [ngValue]="null">Selecciona una familia</option>
+      <option *ngFor="let fam of familias" [ngValue]="fam.id">
+        {{ fam.nombre }}
+      </option>
+    </select>
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="monstruoForm.invalid"
+    class="btn btn-primary"
+  >
+    Crear Monstruo
+  </button>
+
+ <form #actualizarForm="ngForm" (ngSubmit)="actualizarMonstruo()" class="monstruo-form">
+  <div class="form-group">
+    <label for="idActualizar">ID</label>
+    <input
+      type="number"
+      id="idActualizar"
+      name="id"
+      [(ngModel)]="monstruo.id"
+      class="form-control"
+      readonly
+    />
+  </div>
+  <div class="form-group">
+    <label for="nombreActualizar">Nombre</label>
+    <input
+      type="text"
+      id="nombreActualizar"
+      name="nombre"
+      [(ngModel)]="monstruo.nombre"
+      required
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="descripcionActualizar">Descripción</label>
+    <textarea
+      id="descripcionActualizar"
+      name="descripcion"
+      [(ngModel)]="monstruo.descripcion"
+      required
+      class="form-control"
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="partesRompiblesActualizar">Partes Rompibles</label>
+    <input
+      type="text"
+      id="partesRompiblesActualizar"
+      name="partesRompibles"
+      [(ngModel)]="monstruo.partesRompibles"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="imagenActualizar">URL de Imagen</label>
+    <input
+      type="text"
+      id="imagenActualizar"
+      name="imagen"
+      [(ngModel)]="monstruo.imagen"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="familiaActualizar">Familia</label>
+    <select
+      id="familiaActualizar"
+      name="familia"
+      [(ngModel)]="monstruo.familiaId"
+      required
+      class="form-control"
+    >
+      <option [ngValue]="null">Selecciona una familia</option>
+      <option *ngFor="let fam of familias" [ngValue]="fam.id">{{ fam.nombre }}</option>
+    </select>
+  </div>
+  <button type="submit" [disabled]="actualizarForm.invalid" class="btn btn-warning">
+    Actualizar Monstruo
+  </button>
+</form>
+
+<form #eliminarForm="ngForm" (ngSubmit)="eliminarMonstruo()" class="monstruo-form">
+  <div class="form-group">
+    <label for="idEliminar">ID del Monstruo a eliminar</label>
+    <input
+      type="number"
+      id="idEliminar"
+      name="id"
+      [(ngModel)]="monstruo.id"
+      required
+      class="form-control"
+    />
+  </div>
+  <!-- Opcional: muestra el nombre si lo tienes cargado -->
+  <div *ngIf="monstruo.nombre">
+    <p>¿Seguro que quieres eliminar a <strong>{{ monstruo.nombre }}</strong>?</p>
+  </div>
+  <button type="submit" [disabled]="eliminarForm.invalid" class="btn btn-danger">
+    Eliminar Monstruo
+  </button>
+</form>
+
+</form>
+
