@@ -30,9 +30,9 @@ export class MonstruoService {
     return this.http.post<Monstruo>(this.apiUrl, monstruo);
   }
 
-  save(monstruo: Monstruo): Observable<Monstruo> {
-    return this.http.put<Monstruo>(this.apiUrl, monstruo);
-  }
+ save(monstruo: Monstruo): Observable<Monstruo> {
+  return this.http.put<Monstruo>(`${this.apiUrl}/${monstruo.id}`, monstruo);
+}
 
   borrarId(idMonstruo: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/${idMonstruo}`);

@@ -4,4 +4,5 @@ export class Monstruo {
   descripcion!: string;
   imagen!: string;
   partesRompibles!: string;
+  familiaId!:number;
 }

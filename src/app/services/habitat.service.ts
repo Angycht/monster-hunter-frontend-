@@ -28,9 +28,10 @@ export class HabitatService {
     return this.http.post<Habitat>(this.apiUrl, habitat);
   }
 
+
   save(habitat: Habitat): Observable<Habitat> {
-    return this.http.put<Habitat>(this.apiUrl, habitat);
-  }
+   return this.http.put<Habitat>(`${this.apiUrl}/${habitat.id}`, habitat);
+ }
 
   borrarId(idHabitat: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/${idHabitat}`);

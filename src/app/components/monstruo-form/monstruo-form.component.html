@@ -5,7 +5,7 @@
       type="text"
       id="nombre"
       name="nombre"
-      [(ngModel)]="monstruo.nombre"
+      [(ngModel)]="nuevoMonstruo.nombre"
       required
       class="form-control"
     />
@@ -16,7 +16,7 @@
     <textarea
       id="descripcion"
       name="descripcion"
-      [(ngModel)]="monstruo.descripcion"
+      [(ngModel)]="nuevoMonstruo.descripcion"
       required
       class="form-control"
     ></textarea>
@@ -28,7 +28,7 @@
       type="text"
       id="partesRompibles"
       name="partesRompibles"
-      [(ngModel)]="monstruo.partesRompibles"
+      [(ngModel)]="nuevoMonstruo.partesRompibles"
       class="form-control"
     />
   </div>
@@ -39,7 +39,7 @@
       type="text"
       id="imagen"
       name="imagen"
-      [(ngModel)]="monstruo.imagen"
+      [(ngModel)]="nuevoMonstruo.imagen"
       class="form-control"
     />
   </div>
@@ -49,7 +49,7 @@
     <select
       id="familia"
       name="familia"
-      [(ngModel)]="monstruo.familiaId"
+      [(ngModel)]="nuevoMonstruo.familiaId"
       required
       class="form-control"
     >
@@ -75,9 +75,20 @@
       type="number"
       id="idActualizar"
       name="id"
-      [(ngModel)]="monstruo.id"
+      [(ngModel)]="monstruoAEditar.id"
       class="form-control"
-      readonly
+
+    />
+  </div>
+   <div class="form-group">
+    <label for="idActualizar">ID</label>
+    <input
+      type="number"
+      id="idActualizar"
+      name="id"
+      [(ngModel)]="monstruoAEditar.id"
+      class="form-control"
+
     />
   </div>
   <div class="form-group">
@@ -86,7 +97,7 @@
       type="text"
       id="nombreActualizar"
       name="nombre"
-      [(ngModel)]="monstruo.nombre"
+      [(ngModel)]="monstruoAEditar.nombre"
       required
       class="form-control"
     />
@@ -96,7 +107,7 @@
     <textarea
       id="descripcionActualizar"
       name="descripcion"
-      [(ngModel)]="monstruo.descripcion"
+      [(ngModel)]="monstruoAEditar.descripcion"
       required
       class="form-control"
     ></textarea>
@@ -107,7 +118,7 @@
       type="text"
       id="partesRompiblesActualizar"
       name="partesRompibles"
-      [(ngModel)]="monstruo.partesRompibles"
+      [(ngModel)]="monstruoAEditar.partesRompibles"
       class="form-control"
     />
   </div>
@@ -117,7 +128,7 @@
       type="text"
       id="imagenActualizar"
       name="imagen"
-      [(ngModel)]="monstruo.imagen"
+      [(ngModel)]="monstruoAEditar.imagen"
       class="form-control"
     />
   </div>
@@ -126,7 +137,7 @@
     <select
       id="familiaActualizar"
       name="familia"
-      [(ngModel)]="monstruo.familiaId"
+      [(ngModel)]="monstruoAEditar.familiaId"
       required
       class="form-control"
     >
@@ -146,14 +157,14 @@
       type="number"
       id="idEliminar"
       name="id"
-      [(ngModel)]="monstruo.id"
+      [(ngModel)]="monstruoAEliminar.id"
       required
       class="form-control"
     />
   </div>
-  <!-- Opcional: muestra el nombre si lo tienes cargado -->
-  <div *ngIf="monstruo.nombre">
-    <p>¿Seguro que quieres eliminar a <strong>{{ monstruo.nombre }}</strong>?</p>
+
+  <div *ngIf="monstruoAEliminar.nombre">
+    <p>¿Seguro que quieres eliminar a <strong>{{ monstruoAEliminar.nombre }}</strong>?</p>
   </div>
   <button type="submit" [disabled]="eliminarForm.invalid" class="btn btn-danger">
     Eliminar Monstruo
