@@ -1,5 +1,5 @@
 export class MonstruoHabitat {
-  id!: number;
+  id?: number;
   idMonstruo!: number; // Relación con Monstruo
   idHabitat!: number; // Relación con Hábitat
 }

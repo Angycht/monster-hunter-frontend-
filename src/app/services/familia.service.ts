@@ -28,10 +28,9 @@ export class FamiliaService {
   create(familia: Familia): Observable<Familia> {
     return this.http.post<Familia>(this.apiUrl, familia);
   }
-
-  save(familia: Familia): Observable<Familia> {
-    return this.http.put<Familia>(this.apiUrl, familia);
-  }
+save(familia: Familia): Observable<Familia> {
+  return this.http.put<Familia>(`${this.apiUrl}/${familia.id}`, familia);
+}
 
   borrarId(idFamilia: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/${idFamilia}`);

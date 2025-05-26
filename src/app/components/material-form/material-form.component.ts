@@ -20,6 +20,10 @@ export class MaterialFormComponent {
   }
 
   actualizarMaterial() {
+    if (!this.material.idMaterial) {
+  alert('El ID del material es obligatorio para actualizar.');
+  return;
+}
     this.materialService.save( this.material).subscribe(resp => {
       alert('Material actualizado');
       this.material = {};

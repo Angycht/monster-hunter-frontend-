@@ -26,10 +26,19 @@ export class MonstruoHabitatFormComponent implements OnInit {
   }
 
   crearMonstruoHabitat() {
-    this.monstruoHabitatService.create(this.monstruoHabitat).subscribe(resp => {
+    if (!this.monstruoHabitat.idMonstruo || !this.monstruoHabitat.idHabitat) {
+    alert('Debes seleccionar un monstruo y un hábitat');
+    return;
+  }
+  this.monstruoHabitatService.create(this.monstruoHabitat).subscribe({
+    next: resp => {
       alert('Monstruo-Hábitat creado');
-      this.monstruoHabitat = {};
-    });
+      this.monstruoHabitat = { idMonstruo: null, idHabitat: null };
+    },
+    error: err => {
+      alert('Error al asociar: ' + (err.error?.message || err.statusText || err.message));
+    }
+  });
   }
   actualizarMonstruoHabitat() {
     this.monstruoHabitatService.save( this.monstruoHabitat).subscribe(resp => {

@@ -8,7 +8,7 @@ import { MonstruoMaterial } from '../models/MonstruoMaterial';
 })
 export class MonstruoMaterialService {
 
-  private apiUrl = 'http://localhost:8080/monster_hunter/api/materiales'; // Ajusta la URL
+  private apiUrl = 'http://localhost:8080/monster_hunter/api/monstruoMaterial'; // Ajusta la URL
 
   constructor(private http: HttpClient) { }
 

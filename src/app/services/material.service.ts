@@ -9,7 +9,7 @@ import { MonstruoMaterialDTO } from '../models/MonstruoMaterialDTO';
 })
 export class MaterialService {
 
-  private apiUrl = 'http://localhost:8080/monster_hunter/api/materiales'; 
+  private apiUrl = 'http://localhost:8080/monster_hunter/api/materiales';
 
   constructor(private http: HttpClient) { }
 
@@ -30,7 +30,8 @@ export class MaterialService {
   }
 
   save(material: Material): Observable<Material> {
-    return this.http.put<Material>(this.apiUrl, material);
+    
+    return this.http.put<Material>(`${this.apiUrl}/${material.idMaterial}`, material);
   }
 
   borrarId(idMaterial: number): Observable<boolean> {

@@ -8,7 +8,7 @@ import { MonstruoHabitat } from '../models/MonstruoHabitat';
 })
 export class MonstruoHabitatService {
 
-  private apiUrl = 'http://localhost:8080/monster_hunter/api/habitats'; // Ajusta la URL
+  private apiUrl = 'http://localhost:8080/monster_hunter/api/monstruoHabitat';
 
   constructor(private http: HttpClient) { }
 
@@ -24,13 +24,16 @@ export class MonstruoHabitatService {
     return this.http.get<boolean>(`${this.apiUrl}/exists/${idMonstruoHabitat}`);
   }
 
-  create(monstruoHabitat: MonstruoHabitat): Observable<MonstruoHabitat> {
-    return this.http.post<MonstruoHabitat>(this.apiUrl, monstruoHabitat);
-  }
+create(monstruoHabitat: MonstruoHabitat): Observable<MonstruoHabitat> {
+  return this.http.post<MonstruoHabitat>(this.apiUrl, monstruoHabitat);
+}
 
-  save(monstruoHabitat: MonstruoHabitat): Observable<MonstruoHabitat> {
-    return this.http.put<MonstruoHabitat>(this.apiUrl, monstruoHabitat);
-  }
+save(monstruoHabitat: MonstruoHabitat): Observable<MonstruoHabitat> {
+  return this.http.put<MonstruoHabitat>(
+    `${this.apiUrl}/${monstruoHabitat.id}`,
+    monstruoHabitat
+  );
+}
 
   borrarId(idMonstruoHabitat: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/${idMonstruoHabitat}`);
