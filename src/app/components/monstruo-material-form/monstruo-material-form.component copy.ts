@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MonstruoMaterialService } from '../../services/monstruo-material.service';
 import { MonstruoService } from '../../services/monstruo.service';
 import { MaterialService } from '../../services/material.service';
+import { MonstruoMaterial } from '../../models/MonstruoMaterial';
 
 @Component({
   selector: 'app-monstruo-material-form',
@@ -10,7 +11,7 @@ import { MaterialService } from '../../services/material.service';
   styleUrl: './monstruo-material-form.component.css'
 })
 export class MonstruoMaterialFormComponent implements OnInit {
-  monstruoMaterial: any = {};
+monstruoMaterial: MonstruoMaterial = { idMonstruo: 0, idMaterial: 0 };
   monstruos: any[] = [];
   materiales: any[] = [];
 
@@ -25,23 +26,57 @@ export class MonstruoMaterialFormComponent implements OnInit {
     this.materialService.findAll().subscribe(data => this.materiales = data);
   }
 
-  crearMonstruoMaterial() {
-    this.monstruoMaterialService.create(this.monstruoMaterial).subscribe(resp => {
-      alert('Monstruo-Material creado');
-      this.monstruoMaterial = {};
-    });
+crearMonstruoMaterial() {
+  if (!this.monstruoMaterial.idMonstruo || !this.monstruoMaterial.idMaterial) {
+    alert('Selecciona monstruo y material');
+    return;
   }
+  this.monstruoMaterialService.create({
+    idMonstruo: this.monstruoMaterial.idMonstruo,
+    idMaterial: this.monstruoMaterial.idMaterial
+  }).subscribe({
+    next: () => {
+      alert('¡Asociación creada!');
+      this.monstruoMaterial = { idMonstruo: 0, idMaterial: 0 };
+    },
+    error: err => {
+      alert('Error al asociar: ' + (err.error?.message || err.statusText));
+    }
+  });
+}
   actualizarMonstruoMaterial() {
-    this.monstruoMaterialService.save( this.monstruoMaterial).subscribe(resp => {
-      alert('Monstruo-Material actualizado');
-      this.monstruoMaterial = {};
-    });
+  if (
+    !this.monstruoMaterial.id ||
+    !this.monstruoMaterial.idMonstruo ||
+    !this.monstruoMaterial.idMaterial
+  ) {
+    alert('Completa todos los campos');
+    return;
   }
+  this.monstruoMaterialService.save(this.monstruoMaterial).subscribe({
+    next: () => {
+      alert('¡Asociación actualizada!');
+      this.monstruoMaterial = { idMonstruo: 0, idMaterial: 0 };
+    },
+    error: err => {
+      alert('Error al actualizar: ' + (err.error?.message || err.statusText));
+    }
+  });
+}
 
   eliminarMonstruoMaterial() {
-    this.monstruoMaterialService.borrarId(this.monstruoMaterial.id).subscribe(resp => {
-      alert('Monstruo-Material eliminado');
-      this.monstruoMaterial = {};
-    });
+  if (!this.monstruoMaterial.id) {
+    alert('Indica el ID de la relación');
+    return;
   }
+  this.monstruoMaterialService.borrarId(this.monstruoMaterial.id).subscribe({
+    next: () => {
+      alert('¡Asociación eliminada!');
+      this.monstruoMaterial = { idMonstruo: 0, idMaterial: 0 };
+    },
+    error: err => {
+      alert('Error al eliminar: ' + (err.error?.message || err.statusText));
+    }
+  });
+}
 }
