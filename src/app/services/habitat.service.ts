@@ -8,7 +8,7 @@ import { Habitat } from '../models/Habitat';
 })
 export class HabitatService {
 
-  private apiUrl = 'http://localhost:8080/monster_hunter/api/habitats'; // Ajusta la URL
+  private apiUrl = 'http://localhost:8080/monster_hunter/api/habitats'; 
 
   constructor(private http: HttpClient) { }
 

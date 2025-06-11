@@ -9,7 +9,7 @@ import { FamiliaDetalleDTO } from '../models/FamiliaDetalleDTO';
 })
 export class FamiliaService {
 
-  private apiUrl = 'http://localhost:8080/monster_hunter/api/familias'; // Ajusta la URL
+  private apiUrl = 'http://localhost:8080/monster_hunter/api/familias'; 
 
   constructor(private http: HttpClient) { }
 
